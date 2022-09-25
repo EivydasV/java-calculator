@@ -3,16 +3,16 @@ package org.example;
 import java.util.Scanner;
 
 public class Main {
-
+    private static final Scanner in = new Scanner(System.in);
     public static void main(String[] args) {
         Person person = getDetailsAboutPerson();
         multiplication(person.getName().length(), person.getSurname().length());
+        math(person.getName().length(), person.getSurname().length());
         calculator();
     }
 
     private static Person getDetailsAboutPerson(){
         System.out.println("task: 1");
-        Scanner in = new Scanner(System.in);
 
         System.out.println("Enter your name");
         String name = in.nextLine();
@@ -34,7 +34,9 @@ public class Main {
 
     private static void multiplication(int nameLength, int surnameLength){
         System.out.println("task: 2");
+
         int x = nameLength + surnameLength;
+
         System.out.println(1 + " * " + x + " = " + x);
         System.out.println(2 + " * " + x + " = " + x * 2);
         System.out.println(3 + " * " + x + " = " + x * 3);
@@ -46,21 +48,48 @@ public class Main {
         System.out.println(9 + " * " + x + " = " + x * 9);
         System.out.println(10 + " * " + x + " = " + x * 10);
     }
+
+    private static void math(int nameLength, int surnameLength){
+        System.out.println("task: 3");
+        System.out.println("Enter a number");
+        int x = in.nextInt();
+        int a = surnameLength;
+        int b = nameLength;
+        int result;
+
+        result = x + a;
+        System.out.println(x + " + " + a + " = " + result);
+
+        result = x - a;
+        System.out.println(x + " - " + a + " = " + result);
+
+        result = x * a;
+        System.out.println(x + " * " + a + " = " + result);
+
+        result = x / a;
+        System.out.println(x + " / " + a + " = " + result);
+
+        result = a * b / 2;
+        System.out.println(a + " * " + b + " / " + 2 + " = " + result);
+
+        result = a * a * a / x;
+        System.out.println(a + " * " + a + " * " + a + " * " + a + " / " + x + " = " + result);
+
+    }
     private static void calculator(){
         System.out.println("task: 4");
+
         char operator;
         double number1, number2, result;
 
-        Scanner input = new Scanner(System.in);
-
         System.out.println("Choose an operator: +, -, *, or /");
-        operator = input.next().charAt(0);
+        operator = in.next().charAt(0);
 
         System.out.println("Enter first number");
-        number1 = input.nextDouble();
+        number1 = in.nextDouble();
 
         System.out.println("Enter second number");
-        number2 = input.nextDouble();
+        number2 = in.nextDouble();
 
         if(operator == '+'){
             result = number1 + number2;
